@@ -9,7 +9,7 @@ apt-get install -y nodejs
 mkdir -p /app
 cd /app
 
-git clone https://github.com/PableitorxD/asistenciafinal.git .
+git clone https://github.com/developerkantuta/app-tenant-Pa-De.git
 cd backend
 
 npm install
