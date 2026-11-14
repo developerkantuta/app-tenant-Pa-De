@@ -13,6 +13,12 @@ resource "aws_iam_role_policy_attachment" "ec2_tenant_policy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2FullAccess" # En producción usar un permiso más restrictivo
 }
 
+# 4. Dar permisos de IAM al Rol para que pueda crear roles a los tenants hijos
+resource "aws_iam_role_policy_attachment" "ec2_tenant_iam_policy" {
+  role       = aws_iam_role.ec2_tenant_role.name
+  policy_arn = "arn:aws:iam::aws:policy/IAMFullAccess"
+}
+
 # 3. Crear el Instance Profile (el "contenedor" del rol)
 resource "aws_iam_instance_profile" "ec2_tenant_profile" {
   name = "profile-ec2-tenant-${var.tenant_id}"
