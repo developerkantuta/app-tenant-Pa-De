@@ -19,7 +19,7 @@ variable "plan" {
 
 # Asignar tipo de instancia según el plan solicitado
 locals {
-  instance_type = var.plan == "avanzado" ? "t3.medium" : (var.plan == "estandar" ? "t3.small" : "t3.micro")
+  instance_type = var.plan == "avanzado" ? "t3.medium" : (var.plan == "estandar" ? "t3.small" : "t3.small")
 }
 
 # Llamado al módulo reutilizable
